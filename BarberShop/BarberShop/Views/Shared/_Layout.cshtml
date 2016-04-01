@@ -1,0 +1,64 @@
+﻿@using BarberShop.Models
+@using BarberShop.Values
+@{
+    var user = Session[Sessions.UserLogin] as UserModel;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Frisören KlippEss</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-fixed-top" style="border-bottom: 1px white; background-color: white">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul>
+                    @Html.ActionLink("KlippEss", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Startsida", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Priser", "About", "Home")</li>
+                    <li>@Html.ActionLink("Öppettider", "About", "Home")</li>
+                    <li>@Html.ActionLink("Om KlippEss", "About", "Home")</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Boka Tid", "Index", "Booking")</li>
+                    @if ((user != null && user.PermissionType == PermissionType.Employee))
+                    {
+                        <li>@Html.ActionLink("Mitt Schema", "MySchemes", "Booking")</li>
+                    }        
+                </ul>
+                <ul style="float:right" class="nav navbar-nav">
+                    @Html.Partial("_LoginPartial")
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <br />
+        <div class="jumbotron" style="text-align: center; padding: 0;">
+            <img class="img-responsive img-rounded" src="~/Images/39907_miscellaneous_ace_card.jpg"  />
+        </div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My Sogeti Project</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

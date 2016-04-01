@@ -1,0 +1,51 @@
+﻿@using BarberShop.Models
+@using BarberShop.Values
+@using Microsoft.Ajax.Utilities
+@model List<OrderInfo>
+
+@{
+    ViewBag.Title = "Mitt Schema";
+    var user = Session[Sessions.UserLogin] as UserModel;
+}
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="employeeId" value="@user.Id" />
+    <input type="date" name="schemeDay" value="" />
+    <input type="submit" value="Klar" />
+}
+@if ((Model != null && Model.Count != 0))
+{
+    if (Model.Count != 0)
+    {
+        <h2>Schema för @Model.First().BookedDate.ToShortDateString()</h2>
+    }
+
+    <hr />
+    <div style="overflow: auto; width: auto; height: 500px;">
+        @foreach (var order in Model)
+        {
+            <div style="border: 2px solid black; margin-top: 2px;">
+                <h6><u><b>Namn: </b></u>@order.CustomerName</h6>
+                
+                <h6><u><b>Tid: </b></u> @order.BookedDate</h6>
+                <h6><u><b>Antal minuter behandlingen tar:</b></u> @order.amountOfRequiredTime min</h6>
+                <h6><u><b>Behandling: </b></u></h6>
+                @foreach (var ordertype in order.OrderTypes)
+                {
+                    <h5>@ordertype</h5>
+
+                }
+                <br />
+            </div>
+        }
+    </div>
+}
+else
+{
+    <h2>Du har inte några ordrar på det angivna datumet.</h2>
+}
+
+
+
+
+

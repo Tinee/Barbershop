@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B05469A4-1F56-41B8-A66E-5B769168DA54}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DbConnector</RootNamespace>
+    <AssemblyName>DbConnector</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccessLayer\BookingContext.cs" />
+    <Compile Include="DataAccessLayer\ContextHandler.cs" />
+    <Compile Include="Migrations\201505120941375_CreatedDatabase.cs" />
+    <Compile Include="Migrations\201505120941375_CreatedDatabase.Designer.cs">
+      <DependentUpon>201505120941375_CreatedDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505120949288_FixedId.cs" />
+    <Compile Include="Migrations\201505120949288_FixedId.Designer.cs">
+      <DependentUpon>201505120949288_FixedId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505120956389_FixedRequiredField.cs" />
+    <Compile Include="Migrations\201505120956389_FixedRequiredField.Designer.cs">
+      <DependentUpon>201505120956389_FixedRequiredField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505121120053_fixedbugg.cs" />
+    <Compile Include="Migrations\201505121120053_fixedbugg.Designer.cs">
+      <DependentUpon>201505121120053_fixedbugg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506041150159_AddedOpeningHours.cs" />
+    <Compile Include="Migrations\201506041150159_AddedOpeningHours.Designer.cs">
+      <DependentUpon>201506041150159_AddedOpeningHours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506080714251_SchedulesInEmployee.cs" />
+    <Compile Include="Migrations\201506080714251_SchedulesInEmployee.Designer.cs">
+      <DependentUpon>201506080714251_SchedulesInEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506170533352_IsBooked.cs" />
+    <Compile Include="Migrations\201506170533352_IsBooked.Designer.cs">
+      <DependentUpon>201506170533352_IsBooked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\GenericRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityModels\EntityModels.csproj">
+      <Project>{e0e1dc98-1a92-46fe-999f-ee658e8804e7}</Project>
+      <Name>EntityModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505120941375_CreatedDatabase.resx">
+      <DependentUpon>201505120941375_CreatedDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505120949288_FixedId.resx">
+      <DependentUpon>201505120949288_FixedId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505120956389_FixedRequiredField.resx">
+      <DependentUpon>201505120956389_FixedRequiredField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505121120053_fixedbugg.resx">
+      <DependentUpon>201505121120053_fixedbugg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506041150159_AddedOpeningHours.resx">
+      <DependentUpon>201506041150159_AddedOpeningHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506080714251_SchedulesInEmployee.resx">
+      <DependentUpon>201506080714251_SchedulesInEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506170533352_IsBooked.resx">
+      <DependentUpon>201506170533352_IsBooked.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

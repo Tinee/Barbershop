@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BarberShop.Models.OrderInfo>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+<table class="table">
+    <tr>
+        <th>
+            Bokningsdatum
+        </th>
+        <th>
+            Bokat datum
+        </th>
+        <th>
+            Frisörens namn
+        </th>
+        <th>
+            Uppskattad tid(i minuter)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amountOfRequiredTime)
+        </td>
+    </tr>
+}
+
+</table>

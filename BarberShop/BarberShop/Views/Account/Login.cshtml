@@ -1,0 +1,28 @@
+﻿@using BarberShop.Models
+@model  LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "Account"))
+{   @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Email)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Email, Model)
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Password)
+    </div>
+    <div class="editor-field">
+        @Html.PasswordFor(model => model.Password, Model)
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+    <br/>
+    
+    <input type="submit" name="btnLogin" value="Logga In" />
+}

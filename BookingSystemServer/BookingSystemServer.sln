@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayout", "BusinessLogicLayout\BusinessLogicLayout.csproj", "{9AB58747-33B4-46BA-B5F3-117521F0DD28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityModels", "EntityModels\EntityModels.csproj", "{E0E1DC98-1A92-46FE-999F-EE658E8804E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbConnector", "DbConnector\DbConnector.csproj", "{B05469A4-1F56-41B8-A66E-5B769168DA54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{3C8DF0F2-6F15-45F5-946E-56E67E7D0DE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{8AA9603A-B1BE-497D-92DE-04E82869F2BC}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://maercusw.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BusinessLogicLayout\\BusinessLogicLayout.csproj
+		SccProjectName1 = BusinessLogicLayout
+		SccLocalPath1 = BusinessLogicLayout
+		SccProjectUniqueName2 = EntityModels\\EntityModels.csproj
+		SccProjectName2 = EntityModels
+		SccLocalPath2 = EntityModels
+		SccProjectUniqueName3 = DbConnector\\DbConnector.csproj
+		SccProjectName3 = DbConnector
+		SccLocalPath3 = DbConnector
+		SccProjectUniqueName4 = WebApi\\WebApi.csproj
+		SccProjectName4 = WebApi
+		SccLocalPath4 = WebApi
+		SccProjectUniqueName5 = ConsoleTest\\ConsoleTest.csproj
+		SccProjectName5 = ConsoleTest
+		SccLocalPath5 = ConsoleTest
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AB58747-33B4-46BA-B5F3-117521F0DD28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AB58747-33B4-46BA-B5F3-117521F0DD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AB58747-33B4-46BA-B5F3-117521F0DD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AB58747-33B4-46BA-B5F3-117521F0DD28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0E1DC98-1A92-46FE-999F-EE658E8804E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E1DC98-1A92-46FE-999F-EE658E8804E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E1DC98-1A92-46FE-999F-EE658E8804E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E1DC98-1A92-46FE-999F-EE658E8804E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05469A4-1F56-41B8-A66E-5B769168DA54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05469A4-1F56-41B8-A66E-5B769168DA54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05469A4-1F56-41B8-A66E-5B769168DA54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05469A4-1F56-41B8-A66E-5B769168DA54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C8DF0F2-6F15-45F5-946E-56E67E7D0DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C8DF0F2-6F15-45F5-946E-56E67E7D0DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C8DF0F2-6F15-45F5-946E-56E67E7D0DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C8DF0F2-6F15-45F5-946E-56E67E7D0DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA9603A-B1BE-497D-92DE-04E82869F2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA9603A-B1BE-497D-92DE-04E82869F2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA9603A-B1BE-497D-92DE-04E82869F2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA9603A-B1BE-497D-92DE-04E82869F2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BarberShop.Models.Absence>
+
+@{
+    ViewBag.Title = "Absences";
+}
+
+<h2>Absences</h2>
+
+<p>
+    @Html.ActionLink("Lägg till frånvaro", "CreateAbsence", new {scheduleId = ViewBag.ScheduleId})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Typ av frånvaro
+        </th>
+        <th>
+            Från
+        </th>
+        <th>
+            Till
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbsenceTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTo)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+</table>

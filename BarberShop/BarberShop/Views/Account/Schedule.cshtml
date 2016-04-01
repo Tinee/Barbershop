@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BarberShop.Models.Schedule>
+
+@{
+    ViewBag.Title = "Schedule";
+}
+
+<h2>Schedule</h2>
+
+@Html.ActionLink("Lägg till schema", "CreateScheme")
+
+<table class="table">
+    <tr>
+        <th>
+            Start
+        </th>
+        <th>
+            Slut
+        </th>
+        <th>
+            Från klockan
+        </th>
+        <th>
+            Till klockan
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeOfDayFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeOfDayTo)
+        </td>
+        <td>
+            @Html.ActionLink("Frånvaro", "Absences", new { scheduleId=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

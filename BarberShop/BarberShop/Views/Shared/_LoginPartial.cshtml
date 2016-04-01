@@ -1,0 +1,24 @@
+﻿@using System.Activities.Expressions
+@using System.Web.UI.WebControls
+@using BarberShop.Models
+@using BarberShop.Values
+@using Microsoft.Ajax.Utilities
+@if (Session[Sessions.UserLogin] != null)
+{
+    var user = Session[Sessions.UserLogin] as UserModel;
+
+    if (user.PermissionType == PermissionType.Employee)
+    {
+        <li>@Html.ActionLink("Tidschema", "Schedule", "Account")</li>
+    }
+    
+        <li>@Html.ActionLink(@user.FirstName + " " + user.LastName, "Manage", "Account") </li>
+        <li>@Html.ActionLink("Logga ut", "Logout", "Account")</li>
+    
+}
+else
+{
+    <li>@Html.ActionLink("Logga In", "Login", "Account")</li>
+    <li>@Html.ActionLink("Registrera", "Index", "Register")</li>
+
+}

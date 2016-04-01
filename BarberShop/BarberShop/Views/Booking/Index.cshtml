@@ -1,0 +1,79 @@
+﻿@using System.Reflection
+@using BarberShop.Models
+@using BarberShop.Values
+@using Microsoft.Ajax.Utilities
+@model Scheme
+
+@{
+    var orderTypes = ViewBag.OrderTypes as List<OrderType>;
+    var employees = ViewBag.Employees as List<UserModel>;
+    var bookingmodel = Session[Sessions.BookingModel] as BookingModel;
+}
+
+@if (Model == null)
+{
+    using (Html.BeginForm())
+    {
+        foreach (var user in employees)
+        {
+            @Html.Label(user.FirstName + " " + user.LastName)
+            <input type="radio" name="EmployeeId" value="@user.Id" required="Required" />
+            @Html.ValidationMessage("EmployeeId", "Minst ett alternativ")
+            <br />
+        }
+        <br />
+        <hr />
+        foreach (var orderType in orderTypes)
+        {
+            @Html.Label(orderType.Name + " - " + orderType.Price + " :-")
+
+            <input type="checkbox" name="SelectedOrderTypes" value="@orderType.Id" required="Required" />
+
+            <br />
+        }
+        @Html.ValidationMessage("SelectedOrderTypes", "Minst ett alternativ")
+
+
+        <hr />
+        <br />
+        @Html.Label("Närmsta Tiderna")
+        <input type="checkbox" name="IsNearestDate" value="true" />
+        <br />
+        <input type="date" min="@DateTime.Today.AddDays(-1)" name="Day" value="@DateTime.Now.ToShortDateString()" />
+        <br />
+        <h4>@ViewBag.OrderResult</h4>
+    <input type="submit" value="Klar" />
+
+    }
+}
+else
+{
+    if ((Model.TimeQuarters.Count != 0 && Model != null))
+    {
+        <h4>Tider för den @bookingmodel.Day.ToShortDateString() </h4>
+
+    <h4>Priset för din bokade tid är @orderTypes.Select(x => x.Price).Sum():-</h4>
+    <br />
+    using (Html.BeginForm("Index", "Booking"))
+    {
+        <select name="orderTime">
+            @foreach (var timeQuarter in Model.TimeQuarters)
+            {
+                <option value="@timeQuarter.Time">@timeQuarter.Time.ToShortTimeString()</option>
+            }
+
+        </select>
+        <br />
+        <br />
+        <input type="submit" value="Boka Klipptid" />
+    }
+}
+    else
+    {
+        <h3>Finns inga tider för vald datum. </h3>
+    }
+}
+
+
+
+
